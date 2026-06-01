@@ -5,16 +5,8 @@ import authRouter from "./routes/auth";
 
 const app = express();
 
-const FRONTEND_URL = process.env.FRONTEND_URL;
+app.use(cors());
 
-app.use(cors({
-  origin: FRONTEND_URL || true,
-  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: false,
-}));
-
-app.options("*", cors());
 app.use(express.json());
 
 app.get("/", (_req, res) => {
