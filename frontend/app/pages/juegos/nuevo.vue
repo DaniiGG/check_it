@@ -10,14 +10,22 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'auth',
+})
+
 const config = useRuntimeConfig()
 const API = `${config.public.apiBase}/api/games`;
 const router = useRouter();
+const { token } = useAuth()
 
 async function handleCreate(data: any) {
   const res = await fetch(API, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token.value}`,
+    },
     body: JSON.stringify(data),
   });
   if (!res.ok) {

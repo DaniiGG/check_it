@@ -20,10 +20,15 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'auth',
+})
+
 const config = useRuntimeConfig()
 const API = `${config.public.apiBase}/api/games`;
 const route = useRoute();
 const router = useRouter();
+const { token } = useAuth()
 
 const game = ref<any>(null);
 const loading = ref(true);
@@ -31,7 +36,9 @@ const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
-    const res = await fetch(`${API}/${route.params.id}`);
+    const res = await fetch(`${API}/${route.params.id}`, {
+      headers: { Authorization: `Bearer ${token.value}` },
+    });
     if (!res.ok) throw new Error('Juego no encontrado');
     game.value = await res.json();
   } catch (e: any) {
@@ -44,7 +51,10 @@ onMounted(async () => {
 async function handleUpdate(data: any) {
   const res = await fetch(`${API}/${route.params.id}`, {
     method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token.value}`,
+    },
     body: JSON.stringify(data),
   });
   if (!res.ok) {
