@@ -20,7 +20,8 @@
 </template>
 
 <script setup lang="ts">
-const API = 'http://localhost:3000/api/games';
+const config = useRuntimeConfig()
+const API = `${config.public.apiBase}/api/games`;
 const route = useRoute();
 const router = useRouter();
 

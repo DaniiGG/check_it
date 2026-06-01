@@ -61,10 +61,13 @@ export function useAuth() {
     }
   }
 
+  const config = useRuntimeConfig()
+  const API = config.public.apiBase
+
   async function login(email: string, password: string) {
     loading.value = true
     try {
-      const res = await fetch('http://localhost:3000/api/auth/login', {
+      const res = await fetch(`${API}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -84,7 +87,7 @@ export function useAuth() {
   async function register(email: string, alias: string, password: string) {
     loading.value = true
     try {
-      const res = await fetch('http://localhost:3000/api/auth/register', {
+      const res = await fetch(`${API}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, alias, password }),
@@ -112,7 +115,7 @@ export function useAuth() {
     if (!currentToken) return null
     loading.value = true
     try {
-      const res = await fetch('http://localhost:3000/api/auth/me', {
+      const res = await fetch(`${API}/api/auth/me`, {
         headers: { Authorization: `Bearer ${currentToken}` },
       })
       if (!res.ok) {

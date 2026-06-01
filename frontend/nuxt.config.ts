@@ -14,12 +14,17 @@ export default defineNuxtConfig({
   css: ["~/assets/main.css"],
   fonts: {
     families: {
-      "Major Mono Display": [400],
-      "JetBrains Mono": [300, 400, 500, 700],
+      Orbitron: [500, 700, 900],
+      Rajdhani: [300, 400, 500, 600, 700],
+    },
+  },
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://localhost:3000",
     },
   },
   nitro: {
-    preset: "node-server",
+    preset: "vercel",
   },
   vite: {
     clearScreen: false,
