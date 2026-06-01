@@ -72,6 +72,11 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'auth',
+})
+
+const { token } = useAuth()
 const config = useRuntimeConfig()
 const API = `${config.public.apiBase}/api/games`;
 
@@ -126,7 +131,9 @@ async function fetchGames() {
   loading.value = true;
   error.value = null;
   try {
-    const res = await fetch(`${API}${queryString.value}`);
+    const res = await fetch(`${API}${queryString.value}`, {
+      headers: { Authorization: `Bearer ${token.value}` },
+    });
     if (!res.ok) throw new Error(`Error ${res.status}`);
     games.value = await res.json();
   } catch (e: any) {
@@ -148,7 +155,10 @@ async function confirmDelete() {
   const game = deleteTarget.value;
   deleteTarget.value = null;
   try {
-    const res = await fetch(`${API}/${game.id}`, { method: 'DELETE' });
+    const res = await fetch(`${API}/${game.id}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token.value}` },
+    });
     if (!res.ok && res.status !== 204) throw new Error('Error al eliminar');
     games.value = games.value.filter((g) => g.id !== game.id);
   } catch (e: any) {
@@ -160,7 +170,10 @@ async function handleComplete(game: Game) {
   try {
     const res = await fetch(`${API}/${game.id}/complete`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token.value}`,
+      },
       body: JSON.stringify({}),
     });
     if (!res.ok) throw new Error('Error al completar');
