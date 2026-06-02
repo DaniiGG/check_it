@@ -1,5 +1,7 @@
 PRESENTACION 
 https://canva.link/659yeabssv83joq
+PRODUCCION 
+https://check-it-flax.vercel.app
 
 
 # CheckIt — Liquidá tu backlog
