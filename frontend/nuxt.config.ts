@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   srcDir: "app/",
   app: {
     head: {
-      title: "CheckIt — Liquidá tu backlog",
+      title: "CheckIt — Liquida tu backlog",
       htmlAttrs: { lang: "es" },
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },

@@ -2097,7 +2097,7 @@ const _4EmQ3qggcfo0mRx3a_wtm9nXPyDEjRj3HTocbfgectY = (function(nitro) {
 
 const rootDir = "/home/danie/check_it/frontend";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[],"style":[],"script":[],"noscript":[],"title":"CheckIt — Liquidá tu backlog","htmlAttrs":{"lang":"es"}};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[],"style":[],"script":[],"noscript":[],"title":"CheckIt — Liquida tu backlog","htmlAttrs":{"lang":"es"}};
 
 const appRootTag = "div";
 

@@ -42,7 +42,7 @@
         <div class="footer__brand">
           <span class="footer__logo">CHECKIT</span>
           <span class="footer__divider">//</span>
-          <span class="footer__tagline">Liquidá tu backlog con estilo</span>
+          <span class="footer__tagline">Liquida tu backlog con estilo</span>
         </div>
         <div class="footer__meta">
           <span class="footer__version">v2.0</span>

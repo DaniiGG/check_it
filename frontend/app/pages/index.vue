@@ -10,7 +10,7 @@
       </div>
 
       <h1 class="hero__title">
-        <span class="hero__title-top">Liquidá tu</span>
+        <span class="hero__title-top">Liquida tu</span>
         <span class="hero__title-main neon-text">
           BACK<span class="hero__title-cyan">LOG</span>
           <span class="hero__cursor">_</span>
