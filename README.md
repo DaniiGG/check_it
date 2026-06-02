@@ -1,3 +1,7 @@
+PRESENTACION 
+https://canva.link/659yeabssv83joq
+
+
 # CheckIt — Liquidá tu backlog
 
 SPA para gestionar y priorizar tu biblioteca de videojuegos. Aplica un algoritmo que divide la puntuación de Metacritic entre las horas necesarias para completar cada título.
@@ -183,3 +187,10 @@ cd frontend
 npm install
 npm run dev             # http://localhost:3000 (o 3001)
 ```
+
+
+
+
+
+
+
